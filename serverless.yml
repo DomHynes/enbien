@@ -1,0 +1,22 @@
+org: domhynes
+app: enbien
+service: serverless-example
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  nbn:
+    handler: router.handler
+    events:
+      - http:
+          path: places/autocomplete
+          method: get
+      - http:
+          path: places/status/{place}
+          method: get
