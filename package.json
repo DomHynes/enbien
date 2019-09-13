@@ -1,13 +1,13 @@
 {
-  "main": "handler.js",
-  "dependencies": {
-    "aws-lambda-router": "^0.6.2",
-    "axios": "^0.19.0",
-    "serverless-offline": "^5.11.0"
-  },
+  "name": "root",
+  "private": true,
   "devDependencies": {
-    "@types/node": "^11.13.0",
-    "serverless-plugin-typescript": "1.1.7",
-    "typescript": "^3.6.3"
+    "cz-emoji": "^1.1.2",
+    "lerna": "^3.16.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-emoji"
+    }
   }
 }
