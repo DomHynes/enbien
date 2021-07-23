@@ -1,0 +1,36 @@
+Arguments: 
+  /Users/dominic.hynes/.fnm/node-versions/v14.16.0/installation/bin/node /var/folders/lf/zvds9y7j75qdzkb0fg5kwwrh0000gq/T/fnm_multishell_14929_1627021286837/bin/yarn init -f
+
+PATH: 
+  /Users/dominic.hynes/.config/nvim/bin:/var/folders/lf/zvds9y7j75qdzkb0fg5kwwrh0000gq/T/fnm_multishell_14929_1627021286837/bin:/Users/dominic.hynes/.fnm:/Users/dominic.hynes/.serverless/bin:/Users/dominic.hynes/.asdf/shims:/usr/local/opt/asdf/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/dominic.hynes/.config/nvim/bin:/var/folders/lf/zvds9y7j75qdzkb0fg5kwwrh0000gq/T/fnm_multishell_2946_1627010118081/bin:/Users/dominic.hynes/.fnm:/Users/dominic.hynes/.serverless/bin:/Users/dominic.hynes/.fzf/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.16.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/Users/dominic.hynes/.fnm/node-versions/v14.16.0/installation/lib/node_modules/yarn/lib/cli.js:136216:13)
+      at Interface.emit (events.js:315:20)
+      at Interface._ttyWrite (readline.js:875:16)
+      at ReadStream.onkeypress (readline.js:213:10)
+      at ReadStream.emit (events.js:315:20)
+      at emitKeys (internal/readline/utils.js:345:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1144:36)
+      at ReadStream.emit (events.js:315:20)
+      at addChunk (internal/streams/readable.js:309:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
