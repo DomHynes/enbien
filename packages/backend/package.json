@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "watch": "esbuild --watch src/index.ts",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "start": "node dist",
+    "build": "tsc"
   },
   "dependencies": {
     "apollo-server": "^3.0.2",
