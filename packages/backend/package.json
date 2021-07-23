@@ -10,10 +10,16 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@bmatei/apollo-prometheus-exporter": "^1.2.0",
+    "apollo-metrics": "^1.0.1",
     "apollo-server": "^3.0.2",
+    "apollo-server-express": "^3.0.2",
     "axios": "^0.21.1",
     "esbuild": "^0.12.15",
-    "graphql": "^15.5.1"
+    "express": "^4.17.1",
+    "express-prom-bundle": "^6.3.6",
+    "graphql": "^15.5.1",
+    "prom-client": "12.0.0"
   },
   "devDependencies": {
     "@types/node": "^16.4.1",

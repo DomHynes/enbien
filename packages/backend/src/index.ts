@@ -1,6 +1,11 @@
-import { ApolloServer, gql } from "apollo-server";
+import { createPrometheusExporterPlugin } from "@bmatei/apollo-prometheus-exporter";
+import { ApolloServer, gql } from "apollo-server-express";
+import express from "express";
 import type { IResolvers } from "graphql-tools";
+import { register } from "prom-client";
 import nbn, { StatusResponse, SuggestionResponse } from "./nbn";
+
+import bundle from "express-prom-bundle";
 
 const typeDefs = gql`
   type Query {
@@ -88,11 +93,38 @@ const resolvers: IResolvers = {
   },
 };
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
+async function start(): Promise<void> {
+  try {
+    const app = express();
+    app.get("/metrics", (_, res) => res.send(register.metrics()));
 
-server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
-});
+    const middleware = bundle({ includeMethod: true });
+    const prometheusExporterPlugin = createPrometheusExporterPlugin({
+      app,
+      defaultMetrics: false,
+    });
+
+    app.use(middleware);
+    app.use("/health", (req, res) => res.json({ healthy: true }));
+
+    const server = new ApolloServer({
+      typeDefs,
+      resolvers,
+      plugins: [prometheusExporterPlugin as any],
+    });
+
+    await server.start();
+
+    server.applyMiddleware({ app, path: "/" });
+
+    await new Promise<void>((res) =>
+      app.listen(4000 || process.env.NODE_ENV, res)
+    );
+
+    console.log(`🚀 Service started`);
+  } catch (error) {
+    console.error("Failed to start!", error);
+  }
+}
+
+start();
