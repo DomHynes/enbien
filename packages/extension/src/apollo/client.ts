@@ -7,6 +7,6 @@ import {
 } from "@apollo/client";
 
 export const client = new ApolloClient({
-  uri: "http://localhost:4000",
+  uri: "https://enbien.graphcdn.app/",
   cache: new InMemoryCache(),
 });

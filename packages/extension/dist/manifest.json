@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Chrome Extension (built with TypeScript + React)",
-  "description": "A boilerplate project to quickly build a Chrome extension using TypeScript and React (built using webpack).",
+  "name": "enbien",
+  "description": "enbien",
   "version": "1.0.0",
 
   "browser_action": {

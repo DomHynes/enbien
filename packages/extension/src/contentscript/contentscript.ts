@@ -1,6 +1,5 @@
 import "./contentscript.scss";
 
-console.log("gday gday");
 const findAddress = () => {
   const address = document.querySelector("h1");
 
@@ -12,14 +11,17 @@ const findAddress = () => {
 };
 
 const address = findAddress();
-
+console.log({ address });
 if (address) {
-  chrome.runtime.sendMessage({ address });
-}
+  const node = document.createElement("h2");
+  chrome.runtime.sendMessage({ address }, (techType: string) => {
+    console.log({ techType });
+    if (techType) {
+      node.appendChild(document.createTextNode(techType));
 
-chrome.runtime.onMessage.addListener(async (req, sender, sendResponse) => {
-  if (req.getAddress) {
-    sendResponse({ address: findAddress() });
-    chrome.browserAction.setBadgeText({ text: "!", tabId: sender.tab.id });
-  }
-});
+      node.classList.add("enbien");
+
+      document.querySelector("h1").appendChild(node);
+    }
+  });
+}
