@@ -117,9 +117,7 @@ async function start(): Promise<void> {
 
     server.applyMiddleware({ app, path: "/" });
 
-    await new Promise<void>((res) =>
-      app.listen(4000 || process.env.NODE_ENV, res)
-    );
+    await new Promise<void>((res) => app.listen(4000 || process.env.PORT, res));
 
     console.log(`🚀 Service started`);
   } catch (error) {
