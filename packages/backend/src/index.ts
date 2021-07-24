@@ -96,7 +96,6 @@ const resolvers: IResolvers = {
 async function start(): Promise<void> {
   try {
     const app = express();
-    app.get("/metrics", (_, res) => res.send(register.metrics()));
 
     const middleware = bundle({ includeMethod: true });
     const prometheusExporterPlugin = createPrometheusExporterPlugin({
@@ -117,9 +116,9 @@ async function start(): Promise<void> {
 
     server.applyMiddleware({ app, path: "/" });
 
-    await new Promise<void>((res) => app.listen(4000 || process.env.PORT, res));
+    await new Promise<void>((res) => app.listen(process.env.PORT || 4000, res));
 
-    console.log(`🚀 Service started`);
+    console.log(`🚀 Service started on ${process.env.PORT || 4000}`);
   } catch (error) {
     console.error("Failed to start!", error);
   }
