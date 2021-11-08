@@ -12,7 +12,7 @@
   "dependencies": {
     "@bmatei/apollo-prometheus-exporter": "^1.2.0",
     "apollo-metrics": "^1.0.1",
-    "apollo-server": "^3.0.2",
+    "apollo-server": "^3.4.1",
     "apollo-server-express": "^3.0.2",
     "axios": "^0.21.1",
     "esbuild": "^0.12.15",
